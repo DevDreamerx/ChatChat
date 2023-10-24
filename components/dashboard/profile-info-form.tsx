@@ -21,7 +21,7 @@ import { signOut } from 'next-auth/react';
 const ProfileInfoForm = ({ user }: any) => {
     const router = useRouter();
 
-    const t = useTranslations('');
+    const t = useTranslations('dashboard');
 
     const [name, setName] = useState<string>(user.name);
     const [email, setEmail] = useState<string>(user.email);

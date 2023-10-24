@@ -15,7 +15,7 @@ import { Separator } from '@/components/ui/separator';
 import { Switch } from '@/components/ui/switch';
 
 const ProfileSettingsForm = ({ user }: { user: User }) => {
-    const t = useTranslations('');
+    const t = useTranslations('dashboard');
 
     const [openAIKey, setOpenAIKey] = useState<string | null>(user.openAIKey);
     const [allowRecordCloudSync, setAllowRecordCloudSync] = useState<boolean>(user.allowRecordCloudSync);

@@ -13,21 +13,21 @@ import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import packageInfo from '@/package.json';
 
 export default function SideInfo() {
-    const t = useTranslations('');
+    const t = useTranslations('landing');
 
     const [isVersionDialogOpen, setIsVersionDialogOpen] = useState(false);
 
     const currentYear = new Date().getFullYear();
 
-    const [isLatestVersion, setIsLatestVersion] = useState(true);
+    const [isLatestVersion, setIsLatestVersion] = useState(false);
 
     useEffect(() => {
         const getVersion = async () => {
             const res = await fetch('/api/app/latest');
             const data = await res.json();
 
-            if (data.tag_name != packageInfo.version) {
-                setIsLatestVersion(false);
+            if (data.tag_name == packageInfo.version) {
+                setIsLatestVersion(true);
             }
         };
 
@@ -38,15 +38,15 @@ export default function SideInfo() {
         <div>
             <Dialog open={isVersionDialogOpen} onOpenChange={setIsVersionDialogOpen}>
                 <DialogTrigger asChild>
-                    <button className='inline-flex items-center space-x-1 rounded p-1 px-1 text-xs transition duration-200 ease-in-out hover:bg-gray-200 dark:hover:bg-stone-700' aria-label='Version'>
+                    <button className='text-xs inline-flex items-center space-x-1 rounded p-1 px-1 transition duration-200 ease-in-out hover:bg-gray-200 dark:hover:bg-stone-700' aria-label='Version'>
                         v{packageInfo.version}
                     </button>
                 </DialogTrigger>
                 <DialogContent>
-                    <div className='flex w-full flex-col items-center justify-center space-y-10'>
-                        <div className='flex flex-col items-center'>
+                    <div className='flex flex-col space-y-10 w-full items-center justify-center'>
+                        <div className='flex items-center flex-col'>
                             <Image src='/icons/android-chrome-512x512.png' alt='logo' width={50} height={50} />
-                            <p className='text-xl font-medium'>Chat Chat</p>
+                            <p className='font-medium text-xl'>Chat Chat</p>
                             <p className='text-sm text-neutral-600 dark:text-neutral-200'>v{packageInfo.version}</p>
                             {!isLatestVersion && (
                                 <Link href='https://github.com/okisdev/ChatChat/releases/latest' target='_blank'>
@@ -54,7 +54,7 @@ export default function SideInfo() {
                                 </Link>
                             )}
                         </div>
-                        <div className='space-y-2 text-center'>
+                        <div className='text-center space-y-2'>
                             <p className='text-sm'>
                                 Copyright © {currentYear}{' '}
                                 <Link href='https://github.com/okisdev/ChatChat' target='_blank' className='underline'>

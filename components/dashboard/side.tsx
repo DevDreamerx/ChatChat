@@ -15,7 +15,7 @@ import { customConfig } from '@/config/custom.config';
 const DashboardSide = () => {
     const router = useRouter();
 
-    const t = useTranslations('');
+    const t = useTranslations('dashboard');
 
     return (
         <>

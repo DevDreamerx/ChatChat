@@ -24,7 +24,7 @@ const ContentHead = ({
     waitingSystemResponse: boolean;
     conversations: AppMessageProps[];
 }) => {
-    const t = useTranslations('');
+    const t = useTranslations('landing');
 
     const [tokens, setTokens] = useState<number>(0);
 

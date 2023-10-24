@@ -35,7 +35,7 @@ const ChatMain = () => {
     const history = searchParams?.get('history');
     const share = searchParams?.get('share');
 
-    const t = useTranslations('');
+    const t = useTranslations('landing');
     const locale = useLocale();
 
     // Conversation Config

@@ -44,7 +44,7 @@ const OpenAIServiceProvider = ({
     useCloudSettings: boolean;
     setUseCloudSettings: (useCloudSettings: boolean) => void;
 }) => {
-    const t = useTranslations('');
+    const t = useTranslations('landing');
 
     if (user && useCloudSettings) {
         setApiKey(user?.openAIKey || '');

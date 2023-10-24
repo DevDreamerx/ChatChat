@@ -32,7 +32,7 @@ const InputArea = ({
     waitingSystemResponse: boolean;
     stopSystemResponseRef: MutableRefObject<boolean>;
 }) => {
-    const t = useTranslations('');
+    const t = useTranslations('landing');
 
     const locale = useLocale();
 
@@ -225,7 +225,7 @@ const InputArea = ({
     };
 
     return (
-        <div className='my-3 space-y-2'>
+        <div className='space-y-2 my-3'>
             <div className='mx-auto flex w-full items-center justify-between px-1'>
                 <div className='flex flex-row items-center space-x-1 overflow-x-auto whitespace-nowrap'>
                     <Badge variant='secondary' className='text-xs font-normal'>

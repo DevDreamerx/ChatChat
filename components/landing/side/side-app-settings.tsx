@@ -37,7 +37,7 @@ import ExtensionServiceProvider from './service-provider/extension';
 import HuggingFaceServiceProvider from './service-provider/huggingface';
 
 const SideAppSettings = ({ user }: { user: User | null }) => {
-    const t = useTranslations('');
+    const t = useTranslations('landing');
 
     const [isSheetOpen, setIsSheetOpen] = useState<boolean>(false);
 
@@ -58,16 +58,9 @@ const SideAppSettings = ({ user }: { user: User | null }) => {
 
     const [enableAutoSpeech, setEnableAutoSpeech] = useAtom(store.autoSpeechAtom);
 
-    const [enableUserMarkdownRender, setEnableUserMarkdownRender] = useAtom(store.enableUserMarkdownRenderAtom);
-
     const handleSwitchAutoSpeech = () => {
         setEnableAutoSpeech(!enableAutoSpeech);
         toast.success(`${t('Auto Speech')} ${enableAutoSpeech ? t('disabled') : t('enabled')}`);
-    };
-
-    const handleSwitchUserMarkdownRender = () => {
-        setEnableUserMarkdownRender(!enableUserMarkdownRender);
-        toast.success(`${t('Render user message using Markdown')} ${enableUserMarkdownRender ? t('disabled') : t('enabled')}`);
     };
 
     // Search
@@ -458,10 +451,6 @@ const SideAppSettings = ({ user }: { user: User | null }) => {
                                     <MdInfoOutline className='text-lg' />
                                 </button>
                             </Tippy>
-                        </div>
-                        <div className='flex items-center space-x-1'>
-                            <Switch checked={enableUserMarkdownRender} onCheckedChange={handleSwitchUserMarkdownRender} />
-                            <Label className='px-1 font-normal'>{t('Render user message using Markdown')}</Label>
                         </div>
                     </div>
                     <Separator />

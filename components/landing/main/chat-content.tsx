@@ -26,7 +26,7 @@ const MainContent = ({
     onEdit: (index: number) => void;
     isSystemPromptEmpty: boolean;
 }) => {
-    const t = useTranslations('');
+    const t = useTranslations('landing');
 
     const autoSpeech = useAtomValue(store.autoSpeechAtom);
 
@@ -35,8 +35,6 @@ const MainContent = ({
     const endOfMessageRef = useRef<HTMLDivElement>(null);
 
     const [isSpeaking, setIsSpeaking] = useState<boolean>(false);
-
-    const enableUserMarkdownRender = useAtomValue(store.enableUserMarkdownRenderAtom);
 
     useEffect(() => {
         if (endOfMessageRef.current) {
@@ -157,7 +155,7 @@ const MainContent = ({
                                     isUser ? 'bg-sky-500 text-white dark:bg-sky-600' : 'bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white'
                                 }`}
                             >
-                                {isUser && !enableUserMarkdownRender ? renderUserMessage(message.content) : renderMarkdownMessage(message.content)}
+                                {!isUser ? renderMarkdownMessage(message.content) : renderUserMessage(message.content)}
                                 {streamResponse}
                             </div>
                         </div>

@@ -14,7 +14,7 @@ import { siteConfig } from '@/config/site.config';
 const RecordButton = ({ records }: { records: Record[] }) => {
     const router = useRouter();
 
-    const t = useTranslations('');
+    const t = useTranslations('dashboard');
 
     const handleExport = async () => {
         const data = records.map((record) => {

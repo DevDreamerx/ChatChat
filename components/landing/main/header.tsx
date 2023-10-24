@@ -21,7 +21,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 const LandingHeader = () => {
     const pathname = usePathname();
 
-    const t = useTranslations('');
+    const t = useTranslations('landing');
     const locale = useLocale();
 
     const [isHiddenSideAtom, setIsHiddenSideAtom] = useAtom(store.isHiddenSideAtom);
@@ -118,10 +118,10 @@ const ModeList = [
         icon: FiCode,
         link: '/mode/code',
     },
-    // {
-    //     title: 'File',
-    //     value: 'file',
-    //     icon: FiFile,
-    //     link: '/mode/file',
-    // },
+    {
+        title: 'File',
+        value: 'file',
+        icon: FiFile,
+        link: '/mode/file',
+    },
 ];

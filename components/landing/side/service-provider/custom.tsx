@@ -4,7 +4,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 
 const CustomServiceProvider = () => {
-    const t = useTranslations('');
+    const t = useTranslations('landing');
 
     return (
         <>
